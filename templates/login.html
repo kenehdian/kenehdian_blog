@@ -1,0 +1,28 @@
+{% extends "base_bootstrap.html" %}
+{% block content %}
+    <div class="container">
+    <br />
+        
+    <h2>login</h2>
+    <form method="post">
+    <div class="alert alert-info">
+        To login you must have already registered on signup form. Select the signup item from the adminstration button if you have not already registered.
+    </div>
+      <label for="username">Username:</label>
+        <div class="input">
+            <input type="text" name="username" id="username" value="{{username}}">
+          <span class="help-inline" style="color: Red;">
+          </span>
+          </div>
+        <label for="password">Password:</label>
+          <div class="input">
+            <input type="password" name="password" id="password" value="">
+          <span class="help-inline" style="color: Red;">
+            {{error}}
+          </span>
+          </div>
+
+      <input type="submit" class="btn btn-primary" value="Login">
+    </form>
+	</div>
+{% endblock %}

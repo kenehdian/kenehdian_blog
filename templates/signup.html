@@ -1,0 +1,43 @@
+{% extends "base_bootstrap.html" %}
+{% block content %}
+    <div class="container">
+    <br />
+        
+    <h2>Signup</h2>
+    <form method="post">
+    <div class="alert alert-info">
+        If you wish to place entries on this blog, please register on this signup form. User name and password must be between 3-20 characters.
+    </div>
+      <label for="username">Username:</label>
+        <div class="input">
+            <input type="text" name="username" id="username" value="{{username}}">
+          <span class="help-inline" style="color: Red;">
+            {{nameerror}}
+          </span>
+          </div>
+        <label for="password">Password:</label>
+          <div class="input">
+            <input type="password" name="password" id="password" value="">
+          <span class="help-inline" style="color: Red;">
+            {{pwderror}}
+          </span>
+          </div>
+        <label for="verify">Verify Password:</label>
+          <div class="input">
+            <input type="password" name="verify" id="verify" value="">
+			<span class="help-inline" style="color: Red;">
+            {{verifyerror}}
+			</span>
+          </div>
+        <label for="email">Email (optional):</label>
+			<div class="input">
+            <input type="text" name="email" id="email" value="{{email}}">
+			<span class="help-inline" style="color: Red;">
+            {{emailerror}}
+			</span>
+			</div>
+
+      <input type="submit" class="btn btn-primary" value="Signup">
+    </form>
+	</div>
+{% endblock %}

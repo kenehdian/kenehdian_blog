@@ -1,0 +1,32 @@
+{% extends "base_blog.html" %}
+{% block content %}
+    <div class="container">
+		<br />
+		
+		<h2>Welcome {{username}}, enter your wiki below:</h2>
+		<form method="post">
+			<div class="alert alert-info">
+				Post your wiki entry here.  If you enter html in your post, it will be escaped.
+			</div>
+			<label for="title">Title:</label>
+			<div class="input">
+				<div type="text" name="title" style="width:940px;row:1">{{title}}</div> 
+				<span class="help-inline" style="color: Red;">
+				
+				</span>
+			</div>
+			<label for="blogpost">Blog Entry:</label>
+			<div class="input">
+			  <textarea name="content" style="height: 200px; width: 940px;">{{content}}</textarea>
+			
+			</div>
+			<div class="error"> 
+				<br><div class="error" style="color: Red;">{{error}}</div>
+				<br>	
+			</div>
+		   
+			<input type="submit" class="btn btn-primary" value="Save">
+		</form>
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,80 @@
+<! DOCTYPE HTML>
+<html>
+	<head>
+		<title>/ascii/</title>
+		      <style type="text/css">
+        body 
+        {
+            font-family: Sans-Serif;
+            width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .error {color: Red; }
+        label{ display: block; font-size: 20px; }
+        input[type=text]
+        {
+            width: 400px;
+            font-size: 20px;
+            padding: 2px;
+        }
+        textarea
+        {
+            width: 600px;
+            height: 300px;
+            font-size: 17px;
+            font-family: Monospace;
+        }
+        input[type=submit]
+        {
+            font-size: 20px;
+        }
+        hr
+        { margin: 20px auto;}
+        .art + .art
+        {
+            margin-top: 20px;
+        }
+        .art-subject
+        {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .art-body
+        {
+            margin: 0;
+            font-size: 17px;
+        }
+        .map{ position: fixed; right: 25px; top: 112px }
+        </style>
+	</head>
+	<body>
+		<h1>/Enter your Ascii Art/</h1>
+		<form method="post">
+			<label>
+				<div>Art Title</div>
+				<input type="text" name="subject" value="{{subject}}">
+			</label>
+			<label>
+				<div>Ascii Artwork</div>
+				<textarea name="art"  cols="60" rows="25">{{art}}</textarea>
+			</label>
+			<div class="error">{{error}}</div>
+			<br>
+			<input type="submit" value="Post Art">
+		</form>
+		<br>
+		<hr>
+		{% if img_url %}
+			<img class="map" src={{ img_url }}
+		{% endif %}
+		<!-- <img class="map" src="http://maps.googleapis.com/maps/api/staticmap?size=380x263&amp;sensor=false&amp;markers=39.944,-105.062" />  -->
+		
+		{% for art in arts %}
+			<div class="arts">
+				<div class="title">{{art.subject}}  created at {{art.created}}</div>
+				<pre><div class="art-body">{{art.art}}</div></pre>
+			</div>
+		{% endfor %}
+	</body>
+</html>
